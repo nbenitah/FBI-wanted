@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Nathalie Benitah Portfolio</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Add this before your EmailJS initialization -->
+<script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
+
+  <script type="text/javascript"
+        src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js">
+</script>
+<script type="text/javascript">
+   (function(){
+      emailjs.init({
+        publicKey: "YO9YcY7UAimKn6cOH1-"
+   })();
+}
+</script>
+  </script>
+  <!-- Font Awesome CDN -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <!-- Custom styles -->
+  <link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+  <div class="page-wrapper">
+    <header class="site-header"></header>
+    <nav>
+      <ul class="nav--link--list">
+        <li class="nav--link">
+          <a href="#" class="nav--link--anchor link--hover-effect link--hover-effect--black" onclick="toggleModal()">About</a>
+        </li>
+        <li class="nav--link--">
+          <a href="#projects" class="nav--link--anchor link--hover-effect link--hover-effect--black">Projects</a>
+        </li>
+   <li class="nav__link click" style="display: flex; align-items: center;">
+  <a href="#" class="nav--link--anchor link--hover-effect link--hover-effect--black" onclick="toggleModal()">Contact</a>
+  <i class="fas fa-circle-half-stroke contrast-icon" title="Toggle theme" style="cursor:pointer;" onclick="toggleContrast()"></i>
+</li>
+      </ul>
+    </nav>
+    <!-- Shapes -->
+    <img src="assets/semi circle.svg" class="shape shape--0">
+    <img src="assets/circle.svg" class="shape shape--1">
+    <img src="assets/squiggly.svg" class="shape shape--2">
+    <img src="assets/circle.svg" class="shape shape--3">
+    <img src="assets/triangle.svg" class="shape shape--4">
+    <img src="assets/circle.svg" class="shape shape--5">
+    <img src="assets/squiggly.svg" class="shape shape--6">
+    <img src="assets/circle.svg" class="shape shape--7">
+    <img src="assets/semi circle.svg" class="shape shape--8">
+
+    <section id="landing-page" onmousemove="moveBackground(event)">
+      <header class="header">
+        <div class="header-container">
+          <figure style="margin-bottom: 24px;">
+            <!-- Custom NB SVG logo for landing page -->
+            <svg width="72" height="72" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+              <circle cx="50" cy="50" r="48" fill="#fff" />
+              <text x="23" y="75" font-size="60" font-family="Arial" font-weight="bold" fill="#111">
+                <tspan>N</tspan><tspan dx="-28">B</tspan>
+              </text>
+              <rect x="47" y="30" width="6" height="40" transform="rotate(25 50 50)" fill="#fff" rx="2" />
+            </svg>
+          </figure>
+          <h1 class="title" style="margin-top: 12px; margin-bottom: 0;">Hi,</h1>
+          <h1 class="title orange" style="margin-top: 0;">I'm Nathalie</h1>
+          <h3 class="modal__title modal__title--about" style="margin-top: 12px;">Frontend Software Engineer.</h3>
+          <p class="header_para modal_para" style="font-size:20px;">
+            I am <b class="orange">a Frontend Software Engineer</b> with a passion for creating beautiful and functional web applications from complex projects.<br>
+            <div class="social_links_container">
+              <ul class="social_links_list">
+                <li><a href="https://linkedin.com" target="_blank" class="project_description--link" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a></li>
+                <li><a href="https://facebook.com" target="_blank" class="project_description--link" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a></li>
+                <li><a href="https://twitter.com" target="_blank" class="project_description--link" aria-label="Twitter"><i class="fab fa-twitter"></i></a></li>
+              </ul>
+            </div>
+          </p>
+        </div>
+      </header>
+      <button class="mail_btn click" id="openModalBtn">
+        <img src="assets/icons8-envelope-48.png" alt="Mail" class="mail_icon" />
+      </button>
+      <a href="#projects" class="scroll"></a>
+      <div class="scroll_icon click"></div>
+    </section>
+
+    <!-- Modal -->
+    <div class="modal modal--separated">
+      <button class="modal__exit" id="closeModalBtn" aria-label="Close modal">&times;</button>
+      <div class="modal__half modal__about">
+        <p>Here's a little more <b class="orange">about me.</b></p>
+        <p class="modal_para" style="font-size:13px;">
+          I am a bilingual <b class="orange">Frontend Software Engineer</b> with strong skills in HTML, CSS, and JavaScript. I enjoy building user-friendly web apps and collaborating with talented teams. I am always eager to learn and grow in the world of web development.
+        </p>
+        <div class="modal__languages" style="margin-top: 24px;">
+          <img class="modal__language-img" src="assets/128px-HTML5_logo_and_wordmark.svg.png" alt="HTML5 Logo" width="48" height="48">
+          <img class="modal__language-img" src="assets/128px-CSS3_logo_and_wordmark.svg.png" alt="CSS3 Logo" width="48" height="48">
+          <img class="modal__language-img" src="assets/128px-JavaScript-logo.png" alt="JavaScript Logo" width="48" height="48">
+        </div>
+        <h4 class="modal__sub-title modal__sub-title--about"></h4>
+      </div>
+      <div class="modal__half modal__contact">
+        <div class="modal__overlay modal__overlay--success" style="display:none;">
+          <div id="modalSuccessMsg">Thank you! Your message was received.<br>Looking forward to speaking with you.</div>
+        </div>
+        <div class="modal__overlay modal__overlay--loading" style="display:none;">
+          <span class="fa fa-spinner" id="modalSpinner"></span>
+        </div>
+        <h3 class="modal__title modal__title--contact">Let's connect!</h3>
+        <h3 class="modal__sub-title modal__sub-title--contact">
+          I am open to new opportunities and collaborations. Feel free to reach out to me via email or through my social media channels.
+        </h3>
+        <form id="contact__form" onsubmit="contact(event)">
+          <div class="form__item">
+            <label class="form__item--label" for="user_name">Name</label>
+            <input class="input" id="user_name" name="user_name" type="text">
+          </div>
+          <div class="form__item">
+            <label class="form__item--label" for="user_email">Email</label>
+            <input class="input" id="user_email" name="user_email" type="email">
+          </div>
+          <div class="form__item">
+            <label class="form__item--label" for="message">Message</label>
+            <textarea class="input" id="message" name="message" required></textarea>
+          </div>
+          <button type="submit" class="modal__form--submit-btn">Send Message</button>
+        </form>
+      </div>
+    </div>
+
+    <section id="projects">
+      <div class="container">
+        <div class="row">
+          <h1 class="section__title">
+            Here are some of my<span class="orange"> projects</span>
+          </h1>
+          <ul class="project__list">
+            <li class="project">
+              <div class="project_wrapper car-sales-card">
+                <img src="assets/blinker-mockup.png" class="project_img car-sales-img" alt="Blinker Mockup">
+                <div class="project_description car-sales-desc">
+                  <h3 class="project_description--title">Car Sales Projects</h3>
+                  <h4 class="project_description--subtitle">HTML, CSS, JavaScript</h4>
+                  <p>A web application for managing car sales, including inventory management, customer tracking, and sales reporting.</p>
+                  <div class="project_description--links">
+                    <a href="#" class="project_description--link"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="#" class="project_description--link"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" class="project_description--link"><i class="fab fa-twitter"></i></a>
+                  </div>
+                </div>
+              </div>
+            </li>
+            <li class="project">
+              <div class="project_wrapper car-sales-card">
+                <img src="https://cdn.dribbble.com/userupload/18811326/file/original-0cb93232d665494d16f81864f06cfe34.png?resize=1600x1200&vertical=center" alt="car sales management" class="project_img car-sales-img-2">
+                <div class="project_description car-sales-desc">
+                  <h3 class="project_description--title">Car Sales Management</h3>
+                  <h4 class="project_description--subtitle">HTML, CSS, JavaScript</h4>
+                  <p>A modern UI for car sales management, featuring analytics dashboards and responsive design.</p>
+                  <div class="project_description--links">
+                    <a href="#" class="project_description--link"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="#" class="project_description--link"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" class="project_description--link"><i class="fab fa-twitter"></i></a>
+                  </div>
+                </div>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </section>
+  </div>
+  <footer>
+    <div class="row footer__row"></div>
+    <figure>
+      <img class="footer__logo--img" src="assets/logo.svg" alt="Logo">
+    </figure>
+    <div class="footer__social--list">
+      <a href="https://www.linkedin.com/in/nathaliebenitah/" class="footer__social--link link__hover-effect link__hover-effect--white">LinkedIn</a>
+      <a href="https://www.facebook.com/nathalie.benitah.5" class="footer__social--link link__hover-effect link__hover-effect--white">facebook</a>
+      <a href="assets/Front End Resume.pdf" class="footer__social--link" target="_blank" rel="assets/Front End Resume.pdf">Resume</a>
+    </div>
+    <div class="footer__copyright">Copyright © 2025 Made by Nathalie Benitah</div>
+  </footer>
+  <script src="index.js"></script>
+</body>
+</html>

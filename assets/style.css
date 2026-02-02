@@ -587,6 +587,9 @@ section {
     background: none !important;
     margin: 0 0 24px 0 !important;
     padding: 0 !important;
+    width: 100%;
+    display: flex;
+    justify-content: center;
 }
 .nb-cross-container {
     position: relative;
@@ -700,6 +703,12 @@ section {
     width: 100%;
     max-width: 1000px;
     padding: 0 30px;
+}
+.header-container svg {
+  max-width: 90px;
+  width: 100%;
+  height: auto;
+  display: block;
 }
 .header_para {
     font-size: 30px;
@@ -822,23 +831,54 @@ height= 80vh
 }
 /*small phones */
 @media (max-width: 480px) {
-  .project_wrapper {
-    position: relative;
-    min-height: 0;
+  .header {
+    position: static;
+    transform: none;
+    padding: 16px 8px;
+    width: 100%;
+    max-width: 100%;
     display: flex;
     flex-direction: column;
-    margin-bottom: 40px;
+    align-items: center;
+  }
+  .header-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    gap: 16px;
+  }
+  .nb-logo,
+  .contrast-icon {
+    margin: 8px 0;
+    display: block;
+    position: static;
+  }
+  .project_wrapper {
+    flex-direction: column;
+    min-height: 0;
   }
   .project_img {
-    position: static !important;
-    z-index: 0 !important;
     filter: none !important;
     transform: none !important;
+    background: none !important;
     border-color: #e0e0ff !important;
+    position: static !important;
+    z-index: 0 !important;
     width: 100%;
     max-width: 100%;
     height: auto;
   }
+  .img-name-cover {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 40%;
+  height: 15%;
+  background: #fff;
+  z-index: 2;
+  pointer-events: none;
+}
   .project_description {
     opacity: 1 !important;
     position: static !important;
@@ -851,51 +891,23 @@ height= 80vh
     width: 100%;
     text-align: center;
     display: block !important;
+    margin-top: 0.5em;
   }
-    .project_description p {
-        display: block !important;
-        color: #fff !important;
-        font-size: 1em;
-        margin: 0 0 8px 0;
-}
-}
-@media (max-width: 480px) {
-  .project_wrapper {
-    position: relative;
-    min-height: 0;
-    display: flex;
-    flex-direction: column;
-  }
-  .project_img {
-    position: static !important;
-    z-index: 0 !important;
+  .project_wrapper:hover .project_img {
     filter: none !important;
     transform: none !important;
-    border-color: #e0e0ff !important;
-    width: 100%;
-    max-width: 100%;
-    height: auto;
   }
-  .project_description {
+  .project_wrapper:hover .project_description {
     opacity: 1 !important;
-    position: static !important;
-    z-index: 2 !important;
-    background: rgba(0,0,0,0.85) !important;
-    border: none !important;
-    min-height: 80px;
-    padding: 16px;
-    filter: none !important;
-    width: 100%;
-    text-align: center;
-    display: block !important;
   }
+}
   .project_description p {
     display: block !important;
     color: #fff !important;
     font-size: 1em;
     margin: 0 0 8px 0;
   }
-}
+
 /* Force nav links to stay white in dark theme, even on hover */
 .dark-theme .nav--link--anchor,
 .dark-theme .nav--link--anchor:visited,
@@ -917,4 +929,69 @@ height= 80vh
   background: none !important;
   filter: none !important;
   text-shadow: none !important;
+}
+.dark-theme .nav--link--anchor,
+.dark-theme .nav--link--anchor:visited,
+.dark-theme .nav--link--anchor:active,
+.dark-theme .nav--link--anchor:hover,
+.dark-theme .nav--link--anchor:focus {
+  color: #fff !important;
+  background: none !important;
+  text-decoration: none !important;
+  outline: none !important;
+  box-shadow: none !important;
+}
+@media (max-width: 480px) {
+  .header-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    gap: 16px; /* Adds space between logo, text, and envelope */
+  }
+  .header-container figure {
+    margin-bottom: 0 !important;
+  }
+  .mail_btn {
+    margin-top: 16px;
+    align-self: center;
+  }
+}
+@media (max-width: 480px) {
+  .click,
+  button,
+  .mail_btn,
+  .contrast-icon {
+    cursor: pointer !important;
+  }
+}
+/* Responsive tweaks for smaller screens */
+@media (max-width: 767px) {
+  .header {
+    position: static;
+    transform: none;
+    padding: 16px 8px;
+    width: 100%;
+    max-width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+}
+.header-container {
+    gap: 16px;
+}
+
+/* Fix footer social links on small screens */
+@media (max-width: 480px) {
+  .footer__social--list {
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+    margin: 12px 0;
+  }
+  .footer__social--link {
+    margin-right: 0 !important;
+    font-size: 18px;
+  }
 }

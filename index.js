@@ -42,7 +42,7 @@ function contact(event) {
         success.style.display = 'flex';
         setTimeout(() => {
           success.style.display = 'none';
-        }, 3000);
+        }, 5000);
       }
       if (event && event.target && typeof event.target.reset === 'function') {
         event.target.reset();
@@ -55,6 +55,7 @@ function contact(event) {
       alert('Failed to send email: ' + error.text);
     });
   }
+
 window.contact = contact;
 
 document.addEventListener('DOMContentLoaded', function () {

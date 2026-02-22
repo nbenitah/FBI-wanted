@@ -1,0 +1,147 @@
+{
+  "items": [
+    {
+      "uid": "1",
+      "title": "John Doe",
+      "description": "Suspected of multiple bank robberies.",
+      "images": [
+        { "original": "https://via.placeholder.com/150/0000FF/808080?text=John+Doe" }
+      ],
+      "details": "Last seen in New York.",
+      "aliases": ["JD", "Johnny"],
+      "remarks": "Considered armed and dangerous.",
+      "reward_text": "$10,000 reward for information.",
+      "url": "https://www.fbi.gov/wanted/john-doe"
+    },
+    {
+      "uid": "2",
+      "title": "Jane Smith",
+      "description": "Wanted for cyber crimes.",
+      "images": [
+        { "original": "https://via.placeholder.com/150/FF0000/FFFFFF?text=Jane+Smith" }
+      ],
+      "details": "Known to use multiple aliases.",
+      "aliases": ["JS", "Janey"],
+      "remarks": "Expert in computer hacking.",
+      "reward_text": "$5,000 reward for information.",
+      "url": "https://www.fbi.gov/wanted/jane-smith"
+    },
+    {
+      "uid": "3",
+      "title": "Carlos Rivera",
+      "description": "Suspected of international smuggling.",
+      "images": [
+        { "original": "https://randomuser.me/api/portraits/men/32.jpg" }
+      ],
+      "details": "Last seen crossing the border.",
+      "aliases": ["CR", "Carlito"],
+      "remarks": "Speaks Spanish and English.",
+      "reward_text": "$15,000 reward for information.",
+      "url": "https://www.fbi.gov/wanted/carlos-rivera"
+    },
+    {
+      "uid": "5",
+      "title": "Michael Brown",
+      "description": "Wanted for armed robbery.",
+      "images": [
+        { "original": "https://randomuser.me/api/portraits/men/45.jpg" }
+      ],
+      "details": "Last seen in Chicago.",
+      "aliases": ["MB", "Mike"],
+      "remarks": "Has a distinctive tattoo.",
+      "reward_text": "$12,000 reward for information.",
+      "url": "https://www.fbi.gov/wanted/michael-brown"
+    },
+    {
+      "uid": "6",
+      "title": "Sophia Lee",
+      "description": "Suspected of money laundering.",
+      "images": [
+        { "original": "https://randomuser.me/api/portraits/women/65.jpg" }
+      ],
+      "details": "Operates in multiple states.",
+      "aliases": ["SL", "Sophie"],
+      "remarks": "Known for elaborate schemes.",
+      "reward_text": "$9,000 reward for information.",
+      "url": "https://www.fbi.gov/wanted/sophia-lee"
+    },
+    {
+      "uid": "7",
+      "title": "David Kim",
+      "description": "Wanted for drug trafficking.",
+      "images": [
+        { "original": "https://randomuser.me/api/portraits/men/23.jpg" }
+      ],
+      "details": "Last seen in Los Angeles.",
+      "aliases": ["DK", "Dave"],
+      "remarks": "Has connections overseas.",
+      "reward_text": "$20,000 reward for information.",
+      "url": "https://www.fbi.gov/wanted/david-kim"
+    },
+    {
+      "uid": "8",
+      "title": "Olivia Martinez",
+      "description": "Wanted for grand theft auto.",
+      "images": [
+        { "original": "https://randomuser.me/api/portraits/women/12.jpg" }
+      ],
+      "details": "Known to use disguises.",
+      "aliases": ["OM", "Liv"],
+      "remarks": "Drives luxury cars.",
+      "reward_text": "$7,000 reward for information.",
+      "url": "https://www.fbi.gov/wanted/olivia-martinez"
+    },
+    {
+      "uid": "9",
+      "title": "James Wilson",
+      "description": "Suspected of burglary.",
+      "images": [
+        { "original": "https://randomuser.me/api/portraits/men/67.jpg" }
+      ],
+      "details": "Last seen in Houston.",
+      "aliases": ["JW", "Jimmy"],
+      "remarks": "Has a limp.",
+      "reward_text": "$6,000 reward for information.",
+      "url": "https://www.fbi.gov/wanted/james-wilson"
+    },
+    {
+      "uid": "10",
+      "title": "Isabella Rossi",
+      "description": "Wanted for art theft.",
+      "images": [
+        { "original": "https://randomuser.me/api/portraits/women/33.jpg" }
+      ],
+      "details": "Operates in Europe and US.",
+      "aliases": ["IR", "Bella"],
+      "remarks": "Has a background in art history.",
+      "reward_text": "$18,000 reward for information.",
+      "url": "https://www.fbi.gov/wanted/isabella-rossi"
+    },
+    {
+      "uid": "11",
+      "title": "Ethan Clark",
+      "description": "Suspected of arson.",
+      "images": [
+        { "original": "https://randomuser.me/api/portraits/men/11.jpg" }
+      ],
+      "details": "Last seen in Seattle.",
+      "aliases": ["EC", "Eddie"],
+      "remarks": "Has a history of fire-related crimes.",
+      "reward_text": "$14,000 reward for information.",
+      "url": "https://www.fbi.gov/wanted/ethan-clark"
+    },
+    {
+      "uid": "12",
+      "title": "Mia Patel",
+      "description": "Wanted for embezzlement.",
+      "images": [
+        { "original": "https://randomuser.me/api/portraits/women/21.jpg" }
+      ],
+      "details": "Known to use offshore accounts.",
+      "aliases": ["MP", "Mimi"],
+      "remarks": "Expert in finance.",
+      "reward_text": "$11,000 reward for information.",
+      "url": "https://www.fbi.gov/wanted/mia-patel"
+    }
+  ]
+}

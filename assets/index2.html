@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset='utf-8'>
+	<meta http-equiv='X-UA-Compatible' content='IE=edge'>
+	<title>Virtual Glasses Try-On</title>
+	<meta name='viewport' content='width=device-width, initial-scale=1'>
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+	<link rel='stylesheet' type='text/css' media='screen' href='https://unpkg.com/webcam-easy/demo/style/webcam-demo.css'>
+	<link rel='stylesheet' type='text/css' media='screen' href='virtual-glasses.css'>
+	<script src="https://cdn.jsdelivr.net/npm/face-api.js@0.22.2/dist/face-api.min.js"></script>
+    <!-- Switch to ES Module for three.js -->
+    <script type="module">
+      import * as THREE from "https://cdn.jsdelivr.net/npm/three@0.150.1/build/three.module.js";
+      window.THREE = THREE;
+    </script>
+	<script src="//code.jquery.com/jquery-3.3.1.min.js"></script>  
+	<script src="https://unpkg.com/@tensorflow/tfjs-core@2.4.0/dist/tf-core.min.js"></script>
+	<script src="https://unpkg.com/@tensorflow/tfjs-converter@2.4.0/dist/tf-converter.min.js"></script>
+	<script src="https://unpkg.com/@tensorflow/tfjs-backend-webgl@2.4.0/dist/tf-backend-webgl.min.js"></script>
+	<script src="https://unpkg.com/@tensorflow/tfjs-backend-cpu@2.4.0/dist/tf-backend-cpu.min.js"></script>
+	<script src="https://unpkg.com/@tensorflow-models/face-landmarks-detection@0.0.1/dist/face-landmarks-detection.min.js"></script>
+	<script type="text/javascript" src="https://unpkg.com/webcam-easy/dist/webcam-easy.min.js"></script>
+	<script type="text/javascript" src="webcam-ui-lib.js"></script>
+</head>
+<body>
+<div class="container-fluid">
+  <div class="row">
+    <!-- Left column: Camera -->
+    <div class="col-lg-7 col-md-12 mb-4 d-flex flex-column align-items-center">
+      <div id="video-canvas-container" style="position: relative; width: 100%; max-width: 720px; height: 560px; margin: 0 auto;">
+        <video id="video" width="720" height="560" autoplay muted style="position: absolute; top: 0; left: 0; z-index: 1;"></video>
+        <canvas id="overlay" width="720" height="560" style="position: absolute; top: 0; left: 0; z-index: 2;"></canvas>
+      </div>
+      <div class="loading d-none">
+        Loading Model
+        <div class="spinner-border" role="status">
+          <span class="sr-only"></span>
+        </div>
+      </div>
+      <section id="purchase-records-section" style="margin: 2em auto; max-width: 600px;">
+        <h2>Glasses Purchase Records</h2>
+        <div id="purchase-records"></div>
+      </section>
+    </div>
+    <!-- Right column: Glasses selection in a row -->
+    <div class="col-lg-5 col-md-12 d-flex align-items-start">
+      <div id="glasses-slider" class="w-100">
+        <div class="d-flex flex-row align-items-center justify-content-center" style="overflow-x: auto;">
+          <img id="arrowLeft" src="https://cdn-icons-png.flaticon.com/512/271/271220.png">
+          <div id="glasses-list" class="mx-2">
+            <ul class="d-flex flex-row flex-nowrap" style="overflow-x: auto;">
+              <li class="selected-glasses"><img src="glasses/glasses1.png"></li>
+              <li><img src="https://pngimg.com/uploads/glasses/glasses_PNG40.png"></li>
+              <li><img src="https://pngimg.com/uploads/glasses/glasses_PNG41.png"></li>
+              <li><img src="https://pngimg.com/uploads/glasses/glasses_PNG42.png"></li>
+              <li><img src="https://pngimg.com/uploads/glasses/glasses_PNG43.png"></li>
+              <li><img src="https://pngimg.com/uploads/glasses/glasses_PNG44.png"></li>
+              <li><img src="https://pngimg.com/uploads/glasses/glasses_PNG45.png"></li>
+              <li><img src="https://pngimg.com/uploads/glasses/glasses_PNG46.png"></li>
+              <li><img src="https://pngimg.com/uploads/glasses/glasses_PNG47.png"></li>
+              <li><img src="https://pngimg.com/uploads/glasses/glasses_PNG48.png"></li>
+              <li><img src="https://pngimg.com/uploads/glasses/glasses_PNG49.png"></li>
+              <li><img src="https://pngimg.com/uploads/glasses/glasses_PNG50.png"></li>
+              <li><img src="https://pngimg.com/uploads/glasses/glasses_PNG51.png"></li>
+              <li><img src="https://pngimg.com/uploads/glasses/glasses_PNG52.png"></li>
+              <li><img src="https://pngimg.com/uploads/glasses/glasses_PNG53.png"></li>
+              <li><img src="https://pngimg.com/uploads/glasses/glasses_PNG54.png"></li>
+              <li><img src="https://pngimg.com/uploads/glasses/glasses_PNG55.png"></li>
+              <li><img src="https://pngimg.com/uploads/glasses/glasses_PNG56.png"></li>
+              <li><img src="https://pngimg.com/uploads/glasses/glasses_PNG57.png"></li>
+              <li><img src="https://pngimg.com/uploads/glasses/glasses_PNG58.png"></li>
+              <li><img src="https://pngimg.com/uploads/glasses/glasses_PNG59.png"></li>
+              <li><img src="https://pngimg.com/uploads/glasses/glasses_PNG60.png"></li>
+            </ul>
+          </div>
+          <img id="arrowRight" src="https://cdn-icons-png.flaticon.com/512/271/271228.png">
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- Users records section -->
+<section id="users-records-section" style="margin: 2em auto; max-width: 600px;">
+  <h2>Sample Users (JSONPlaceholder)</h2>
+  <div id="users-records"></div>
+</section>
+<!-- Posts records section -->
+<section id="posts-records-section" style="margin: 2em auto; max-width: 600px;">
+  <h2>Sample Posts (JSONPlaceholder)</h2>
+  <div id="posts-records"></div>
+</section>
+<script type="module" src='virtual-glasses.js'></script>
+</body>
+</html>

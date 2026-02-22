@@ -1,3 +1,19 @@
+/* Ensure video and overlay are stacked and aligned */
+#video, #overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 720px;
+  height: 560px;
+}
+#overlay {
+  z-index: 10;
+  pointer-events: none;
+}
+body {
+  position: relative;
+  min-height: 100vh;
+}
 /* --- MODAL STYLES --- */
 .modal {
     position: fixed;

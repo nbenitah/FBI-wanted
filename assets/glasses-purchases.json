@@ -1,0 +1,72 @@
+[
+  {
+    "id": 1,
+    "Name": "John Doe",
+    "Prescription": "-2.00, -1.50",
+    "Frame": "Ray-Ban Classic",
+    "Purchase Date": "2026-02-01"
+  },
+  {
+    "id": 2,
+    "Name": "Jane Smith",
+    "Prescription": "-1.25, -1.00",
+    "Frame": "Oakley Sport",
+    "Purchase Date": "2026-01-15"
+  },
+  {
+    "id": 3,
+    "Name": "Alex Lee",
+    "Prescription": "-0.75, -0.50",
+    "Frame": "Gucci Trend",
+    "Purchase Date": "2026-02-10"
+  },
+  {
+    "id": 4,
+    "Name": "Maria Garcia",
+    "Prescription": "-3.00, -2.75",
+    "Frame": "Prada Elegant",
+    "Purchase Date": "2026-01-22"
+  },
+  {
+    "id": 5,
+    "Name": "David Kim",
+    "Prescription": "-2.50, -2.00",
+    "Frame": "Tom Ford Modern",
+    "Purchase Date": "2026-02-12"
+  },
+  {
+    "id": 6,
+    "Name": "Emily Clark",
+    "Prescription": "-1.00, -0.75",
+    "Frame": "Versace Chic",
+    "Purchase Date": "2026-01-30"
+  },
+  {
+    "id": 7,
+    "Name": "Michael Brown",
+    "Prescription": "-2.25, -2.00",
+    "Frame": "Armani Classic",
+    "Purchase Date": "2026-02-05"
+  },
+  {
+    "id": 8,
+    "Name": "Sophia Wilson",
+    "Prescription": "-1.50, -1.25",
+    "Frame": "Burberry Retro",
+    "Purchase Date": "2026-01-18"
+  },
+  {
+    "id": 9,
+    "Name": "Chris Johnson",
+    "Prescription": "-0.50, -0.25",
+    "Frame": "Coach Urban",
+    "Purchase Date": "2026-02-14"
+  },
+  {
+    "id": 10,
+    "Name": "Olivia Martinez",
+    "Prescription": "-2.75, -2.50",
+    "Frame": "Dolce & Gabbana",
+    "Purchase  Date": "2026-01-28"
+  }
+]

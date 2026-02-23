@@ -1,5 +1,45 @@
 // Add click event to static images in indexFBI.html
 document.addEventListener('DOMContentLoaded', () => {
+        // OMDB API section for documentaries
+        const omdbDocsContainer = document.getElementById('omdb-docs-container');
+        const omdbApiKey = 'fb1cba48'; // Replace with your OMDB API key
+        const documentaryTitles = [
+            'Most Wanted',
+            'America’s Most Wanted',
+            'FBI: Most Wanted',
+            'The FBI Files',
+            'Manhunt: Unabomber',
+            'The Most Dangerous Man in America',
+            'The Most Wanted Woman',
+            'The Most Wanted Man',
+            'Most Wanted Criminals',
+            'FBI Undercover',
+        ];
+        async function fetchDocumentaries() {
+            if (!omdbDocsContainer) return;
+            omdbDocsContainer.innerHTML = '<p>Loading documentaries...</p>';
+            let docsHtml = '';
+            for (const title of documentaryTitles) {
+                try {
+                    const url = `https://www.omdbapi.com/?apikey=${omdbApiKey}&t=${encodeURIComponent(title)}`;
+                    const response = await fetch(url);
+                    const data = await response.json();
+                    if (data && data.Response === 'True') {
+                        docsHtml += `<div class="doc-card" style="display:inline-block;margin:12px;padding:12px;border:1px solid #ccc;border-radius:8px;width:220px;vertical-align:top;background:#fafafa;">
+                            <img src="${data.Poster !== 'N/A' ? data.Poster : 'https://via.placeholder.com/150'}" alt="${data.Title}" style="width:100%;height:auto;border-radius:4px;">
+                            <h3 style="font-size:1.1rem;margin:8px 0 4px 0;">${data.Title}</h3>
+                            <p style="font-size:0.95rem;margin:0 0 8px 0;">${data.Year} | ${data.Type}</p>
+                            <p style="font-size:0.9rem;">${data.Plot}</p>
+                            <a href="https://www.imdb.com/title/${data.imdbID}" target="_blank">View on IMDb</a>
+                        </div>`;
+                    }
+                } catch (err) {
+                    docsHtml += `<div style="margin:12px;color:red;">Failed to load documentary: ${title}</div>`;
+                }
+            }
+            omdbDocsContainer.innerHTML = docsHtml || '<p>No documentaries found.</p>';
+        }
+        fetchDocumentaries();
     document.querySelectorAll('.fbi-img').forEach(img => {
         img.addEventListener('click', function() {
             const info = this.alt || 'No information available for this individual.';

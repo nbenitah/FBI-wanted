@@ -1,3 +1,35 @@
+#documentary-section {
+    width: 100vw;
+    max-width: 1200px;
+    margin: 40px auto 0 auto;
+    display: block;
+}
+#omdb-docs-container {
+    display: flex !important;
+    flex-wrap: wrap;
+    gap: 16px;
+    align-items: stretch;
+    justify-content: flex-start;
+    width: 100%;
+}
+#omdb-docs-container {
+    display: flex !important;
+    flex-wrap: wrap;
+    gap: 16px;
+    align-items: stretch;
+}
+.doc-card {
+    flex: 0 1 260px;
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+    padding: 16px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    background: #fafafa;
+    min-height: 420px;
+    box-sizing: border-box;
+}
 #home {
     background-color: #c00000; /* FBI red */
     color: white;

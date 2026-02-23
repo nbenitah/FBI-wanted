@@ -10,11 +10,20 @@
 	<header>
 		<h1>FBI Most Wanted List</h1>
 		<div id="search-bar-container" style="margin: 18px 0 0 0; display: flex; gap: 8px; align-items: center; flex-wrap: wrap;">
-			<div style="margin: 0 auto; display: flex; gap: 8px; align-items: center; justify-content: center; width: 100%; flex-wrap: wrap;">
-				<input type="text" id="search-input" placeholder="Search by name..." style="padding: 8px; font-size: 1rem; width: 250px;">
-				<button id="search-button" style="padding: 8px 16px; font-size: 1rem; cursor: pointer;">Search</button>
-				<button id="clear-search" style="padding: 8px 16px; font-size: 1rem; cursor: pointer;">Clear</button>
-			</div>
+						<div style="margin: 0 auto; display: flex; gap: 8px; align-items: center; justify-content: center; width: 100%; flex-wrap: wrap;">
+								<input type="text" id="search-input" placeholder="Search by name..." style="padding: 8px; font-size: 1rem; width: 250px;">
+								<button id="search-button" style="padding: 8px 16px; font-size: 1rem; cursor: pointer;">Search</button>
+								<button id="clear-search" style="padding: 8px 16px; font-size: 1rem; cursor: pointer;">Clear</button>
+								<label for="sort-select" style="margin-left:16px;font-weight:bold;">Sort by:</label>
+								<select id="sort-select" style="padding:8px;font-size:1rem;">
+									<option value="name-asc">Name (A-Z)</option>
+									<option value="name-desc">Name (Z-A)</option>
+									<option value="reward-desc">Reward (High-Low)</option>
+									<option value="reward-asc">Reward (Low-High)</option>
+									<option value="date-desc">Date Added (Newest)</option>
+									<option value="date-asc">Date Added (Oldest)</option>
+								</select>
+						</div>
 		</div>
 		<nav>
            

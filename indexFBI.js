@@ -12,7 +12,9 @@ document.addEventListener('DOMContentLoaded', () => {
     const searchInput = document.getElementById('search-input');
     const searchButton = document.getElementById('search-button');
     const clearSearchButton = document.getElementById('clear-search');
+    const sortSelect = document.getElementById('sort-select');
     let allPersons = [];
+    let currentSort = 'name-asc';
     // Set your default API endpoint here
     const apiUrl = 'https://api.fbi.gov/wanted/v1/list';
     // Removed invalid https://api.fbi.gov/@wantedmy endpoint (not used)
@@ -48,7 +50,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     console.error('Failed to load mock data:', mockError);
                 }
             }
-            renderWantedList(allPersons);
+            renderWantedList(sortPersons(allPersons, currentSort));
             // Render wanted list (used for search and initial display)
             function renderWantedList(persons) {
                 wantedListContainer.innerHTML = '';
@@ -165,7 +167,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 function doSearch() {
                     const query = searchInput.value.trim().toLowerCase();
                     if (!query) {
-                        renderWantedList(allPersons);
+                        renderWantedList(sortPersons(allPersons, currentSort));
                         return;
                     }
                     const filtered = allPersons.filter(person => {
@@ -177,11 +179,47 @@ document.addEventListener('DOMContentLoaded', () => {
                         }
                         return match;
                     });
-                    renderWantedList(filtered);
+                    renderWantedList(sortPersons(filtered, currentSort));
                 }
                 searchButton.addEventListener('click', doSearch);
                 searchInput.addEventListener('keydown', function(e) {
                     if (e.key === 'Enter') doSearch();
+                });
+            }
+            // Sorting functionality
+            function sortPersons(persons, sortType) {
+                let arr = [...persons];
+                switch (sortType) {
+                    case 'name-asc':
+                        arr.sort((a, b) => (a.title || '').localeCompare(b.title || ''));
+                        break;
+                    case 'name-desc':
+                        arr.sort((a, b) => (b.title || '').localeCompare(a.title || ''));
+                        break;
+                    case 'reward-desc':
+                        arr.sort((a, b) => parseReward(b.reward_text) - parseReward(a.reward_text));
+                        break;
+                    case 'reward-asc':
+                        arr.sort((a, b) => parseReward(a.reward_text) - parseReward(b.reward_text));
+                        break;
+                    case 'date-desc':
+                        arr.sort((a, b) => new Date(b.date_of_birth_used || b.date_of_birth || b.modified || b.publication) - new Date(a.date_of_birth_used || a.date_of_birth || a.modified || a.publication));
+                        break;
+                    case 'date-asc':
+                        arr.sort((a, b) => new Date(a.date_of_birth_used || a.date_of_birth || a.modified || a.publication) - new Date(b.date_of_birth_used || b.date_of_birth || b.modified || b.publication));
+                        break;
+                }
+                return arr;
+            }
+            function parseReward(rewardText) {
+                if (!rewardText) return 0;
+                let match = rewardText.replace(/,/g, '').match(/\$([0-9]+)/);
+                return match ? parseInt(match[1], 10) : 0;
+            }
+            if (sortSelect) {
+                sortSelect.addEventListener('change', function() {
+                    currentSort = sortSelect.value;
+                    renderWantedList(sortPersons(allPersons, currentSort));
                 });
             }
             if (clearSearchButton && searchInput) {
